@@ -1,5 +1,5 @@
-
 import { cn } from '@/lib/utils';
+import { Loader2 } from 'lucide-react';
 
 interface LoadingIndicatorProps {
   size?: 'small' | 'medium' | 'large';
@@ -9,35 +9,27 @@ interface LoadingIndicatorProps {
 
 const LoadingIndicator = ({ 
   size = 'medium', 
-  message = 'Crafting a simple example...',
+  message, 
   className 
 }: LoadingIndicatorProps) => {
-  const dimensions = {
-    small: 'h-6 w-6',
-    medium: 'h-10 w-10',
-    large: 'h-16 w-16'
+  const sizeClasses = {
+    small: 'h-4 w-4',
+    medium: 'h-6 w-6',
+    large: 'h-8 w-8'
   };
 
   return (
-    <div className={cn('flex flex-col items-center justify-center gap-4', className)}>
-      <div className="relative">
-        <div className={cn(
-          'rounded-full border-2 border-t-primary/80 border-r-primary/30 border-b-primary/10 border-l-primary/60',
-          dimensions[size],
-          'animate-spin'
-        )} />
-        <div className={cn(
-          'absolute top-0 left-0 right-0 bottom-0',
-          'rounded-full border-2 border-t-transparent border-r-primary/10 border-b-primary/30 border-l-transparent',
-          dimensions[size],
-          'animate-spin delay-150'
-        )} 
-        style={{ animationDirection: 'reverse' }}
-        />
-      </div>
+    <div className={cn('flex flex-col items-center justify-center', className)}>
+      <Loader2 className={cn(
+        'animate-spin text-primary', 
+        sizeClasses[size]
+      )} />
       
       {message && (
-        <p className="text-center text-muted-foreground animate-pulse-soft mt-2">
+        <p className={cn(
+          'mt-3 text-muted-foreground text-center',
+          size === 'small' ? 'text-xs' : size === 'large' ? 'text-base' : 'text-sm'
+        )}>
           {message}
         </p>
       )}
