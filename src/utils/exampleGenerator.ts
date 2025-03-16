@@ -9,7 +9,7 @@ export interface Example {
 const GEMINI_API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent';
 
 // Add your API key directly here
-const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+const GEMINI_API_KEY = 'AIzaSyAowkX4rgYzGmSsHtP1NG9hxlGIdVXscfI';
 
 export const generateExample = async (topic: string, ageGroup?: string): Promise<Example> => {
   try {
