@@ -14,8 +14,8 @@ const GEMINI_API_KEY = 'AIzaSyAowkX4rgYzGmSsHtP1NG9hxlGIdVXscfI';
 export const generateExample = async (topic: string, ageGroup?: string): Promise<Example> => {
   try {
     const prompt = ageGroup 
-      ? `Generate a simple, clear example explaining "${topic}" for ${ageGroup}. Under 150 words.`
-      : `Generate a simple, clear example explaining "${topic}" that anyone can understand. Under 150 words.`;
+      ? `Generate a simple, clear and small example explaining "${topic}" for ${ageGroup}. Under 150 words.`
+      : `Generate a simple, clear and small example explaining "${topic}" that anyone can understand. Under 150 words.`;
 
     const response = await axios.post(
       `${GEMINI_API_ENDPOINT}?key=${GEMINI_API_KEY}`,
